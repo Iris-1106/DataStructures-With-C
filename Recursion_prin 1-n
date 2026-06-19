@@ -4,7 +4,7 @@ void print_numbers(int current,int n){
     return;
   }
   else{
-    print("%d",current);
+    printf("%d",current);
     print_numbers(current+1,n);
 }
 int main(){
