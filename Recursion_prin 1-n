@@ -1,0 +1,17 @@
+#include<stdio.h>
+void print_numbers(int current,int n){
+  if(current>n){
+    return;
+  }
+  else{
+    print("%d",current);
+    print_numbers(current+1,n);
+}
+int main(){
+  int n;
+  printf("enter the value of n:");
+  scanf("%d",&n);
+  print_numbers(1,n);
+  return 0;
+}
+    
