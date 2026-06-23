@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* prev;
+    struct Node* next;
+};
+
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->prev = NULL;
+    newNode->next = NULL;
+    return newNode;
+}
+
+int main() {
+    struct Node* head = createNode(10);
+
+    printf("Node created!\n");
+    printf("Data: %d\n", head->data);
+    printf("Prev: %p\n", head->prev);
+    printf("Next: %p\n", head->next);
+
+    free(head);
+    return 0;
+}
