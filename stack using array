@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 5   // maximum size of stack
+
+int stack[MAX];
+int top = -1;   // -1 means stack is empty
+
+// Check if stack is full
+int isFull() {
+    return top == MAX - 1;
+}
+
+// Check if stack is empty
+int isEmpty() {
+    return top == -1;
+}
+
+// Push an element onto the stack
+void push(int value) {
+    if (isFull()) {
+        printf("Stack Overflow! Cannot push %d\n", value);
+        return;
+    }
+    stack[++top] = value;
+    printf("%d pushed to stack\n", value);
+}
+
+// Pop an element from the stack
+void pop() {
+    if (isEmpty()) {
+        printf("Stack Underflow! Cannot pop\n");
+        return;
+    }
+    printf("%d popped from stack\n", stack[top--]);
+}
+
+// Peek the top element
+void peek() {
+    if (isEmpty()) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Top element is %d\n", stack[top]);
+}
+
+// Display all elements
+void display() {
+    if (isEmpty()) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Stack elements: ");
+    for (int i = top; i >= 0; i--) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    display();
+
+    pop();
+    display();
+
+    peek();
+
+    push(40);
+    push(50);
+    push(60);   // this will show overflow since MAX = 5
+
+    display();
+
+    return 0;
+}
